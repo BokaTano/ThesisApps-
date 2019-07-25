@@ -9,36 +9,29 @@
 import SwiftUI
 
 struct MainView : View {
-    @EnvironmentObject private var data: Model
-    
-    @State private var exercises = ["Unterarmstütz", "Dehnen", "Kopfstand", "Handstand"]
-    @State private var selectedExercise = "Plank"
-    @State private var selectedTimeIndex = 60 {
-        didSet {
-            data.countDownTime = selectedTimeIndex
-        }
-    }
+    @ObjectBinding private var data = Model()
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ScrollView {
-                    Text("Time \(self.data.countDownTime)")
-                    ForEach(self.exercises.identified(by: \.self)) { exercise in
-                        Button(action: {
-                            self.selectedExercise = String(exercise)
-                        }) {
-                            Text(exercise)
-                        }
-                    }
-                    Picker(selection: self.$selectedTimeIndex, label: Text("select Time")) {
+                    ButtonView(data: self.data)
+                    
+                    Spacer()
+                        .padding(.top)
+                    
+                    Picker(selection: self.$data.countDownTime, label: Text("select Time")) {
                         ForEach(1...240) { diget in
                             Text("\(diget)")
                         }
-                       
+                        
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                    NavigationLink(destination: TimerView()) {
+                    .frame(width: geometry.size.width, height: (geometry.size.height/3*2), alignment: .center)
+                    
+                    Spacer()
+                        .padding(.top)
+                    
+                    NavigationLink(destination: TimerView(data: self.data)) {
                         VStack {
                             Image(systemName: "play.fill").imageScale(.medium)
                             Text("Start")
@@ -46,7 +39,7 @@ struct MainView : View {
                     }
                 }
                 .contextMenu {
-                    NavigationLink(destination: TimerView()) {
+                    NavigationLink(destination: TimerView(data: self.data)) {
                         VStack {
                             Image(systemName: "play.fill").imageScale(.medium)
                             Text("Start")
@@ -62,7 +55,8 @@ struct MainView : View {
 #if DEBUG
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(Model())
     }
 }
 #endif
+

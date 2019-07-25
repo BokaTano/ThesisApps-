@@ -10,8 +10,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class CustomTimer:  BindableObject{
-    let didChange = PassthroughSubject<Void, Never>()
+final class CustomTimer:  BindableObject{    
+    let willChange = PassthroughSubject<Void, Never>()
     
     public var currentTime: Int
     public var timer: Timer {
@@ -21,7 +21,7 @@ final class CustomTimer:  BindableObject{
     @objc func onSecondPassed() {
         if currentTime > 0 {
             currentTime = currentTime - 1
-            didChange.send()
+            willChange.send()
         } else {
             timer.invalidate()
         }

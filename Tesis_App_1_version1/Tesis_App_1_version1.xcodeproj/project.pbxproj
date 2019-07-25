@@ -20,6 +20,7 @@
 		7A58A31E22DE307D008F602D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A58A31D22DE307D008F602D /* Assets.xcassets */; };
 		7A58A32122DE307D008F602D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A58A32022DE307D008F602D /* Preview Assets.xcassets */; };
 		7A6C940722E7645A001A0DBB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C940622E7645A001A0DBB /* Model.swift */; };
+		7AD1CAEF22E9F2F5009AF8B3 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		7A58A32022DE307D008F602D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7A58A32222DE307D008F602D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A6C940622E7645A001A0DBB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/Model.swift"; sourceTree = "<group>"; };
+		7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/ButtonView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				7A386E6A22E1DF0F0039D5C2 /* CustomTimer.swift */,
 				7A58A31722DE307D008F602D /* ContentView.swift */,
 				7A386E6822E1DEB70039D5C2 /* MainView.swift */,
+				7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */,
 				7A386E6422E1BDF30039D5C2 /* TimerView.swift */,
 				7A58A31922DE307D008F602D /* HostingController.swift */,
 				7A58A31B22DE307D008F602D /* ExtensionDelegate.swift */,
@@ -278,6 +281,7 @@
 			files = (
 				7A6C940722E7645A001A0DBB /* Model.swift in Sources */,
 				7A386E6B22E1DF0F0039D5C2 /* CustomTimer.swift in Sources */,
+				7AD1CAEF22E9F2F5009AF8B3 /* ButtonView.swift in Sources */,
 				7A58A31A22DE307D008F602D /* HostingController.swift in Sources */,
 				7A58A31822DE307D008F602D /* ContentView.swift in Sources */,
 				7A58A31C22DE307D008F602D /* ExtensionDelegate.swift in Sources */,

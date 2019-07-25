@@ -11,11 +11,19 @@ import SwiftUI
 
 final class Model: BindableObject {
     
-    let didChange = PassthroughSubject<Void, Never>()
+    let willChange = PassthroughSubject<Void, Never>()
     
-    var countDownTime: Int = 0 {
-        didSet {
-            didChange.send()
+    var exercises = ["Unterarmstütz", "Dehnen", "Kopfstand", "Handstand", "Aufwärmen", "Freuen"]
+    
+    var countDownTime: Int = 30 {
+        willSet {
+            willChange.send()
+        }
+    }
+    
+    var exercise = "Dehnen" {
+        willSet {
+            willChange.send()
         }
     }
 }

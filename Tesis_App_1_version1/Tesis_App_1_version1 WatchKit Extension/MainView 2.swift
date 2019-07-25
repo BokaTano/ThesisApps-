@@ -9,17 +9,27 @@
 import SwiftUI
 
 struct MainView : View {
-    @EnvironmentObject private var data: Data
+    @EnvironmentObject private var data: Model
     
     @State private var exercises = ["Unterarmstütz", "Dehnen", "Kopfstand", "Handstand"]
-    @State private var selectedExercise = "Plank"
-    @State private var selectedTimeIndex = 60
+    @State private var selectedExercise = "Unterarmstütz"
+    @State private var letstry = "nothing happened yet"
+    @State private var selectedTimeIndex = 60 {
+        //TODO: why does envobj not update here
+        didSet {
+            data.countDown = selectedTimeIndex
+            letstry = "it tried"
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ScrollView {
-                    Text(String(self.data.countDownTime))
+                    Text("Time \(self.selectedTimeIndex)")
+                    Text("Env:\(self.data.countDown)")
+                    Text(self.letstry)
+                    
                     ForEach(self.exercises.identified(by: \.self)) { exercise in
                         Button(action: {
                             self.selectedExercise = String(exercise)
@@ -27,15 +37,16 @@ struct MainView : View {
                             Text(exercise)
                         }
                     }
-                    Picker(selection: self.$data.countDownTime, label: Text("select Time")) {
-                        ForEach(0...240) { number in
-                            Text("\(number) seconds")
+                    
+                    Picker(selection: self.$selectedTimeIndex, label: Text("select Time")) {
+                        ForEach(1...240) { diget in
+                            Text("\(diget)")
                         }
-                        
+                       
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     
-                    NavigationLink(destination: TimerView()) {
+                    NavigationLink(destination: TimerView().environmentObject(Model())) {
                         VStack {
                             Image(systemName: "play.fill").imageScale(.medium)
                             Text("Start")
@@ -43,7 +54,7 @@ struct MainView : View {
                     }
                 }
                 .contextMenu {
-                    NavigationLink(destination: TimerView()) {
+                    NavigationLink(destination: TimerView().environmentObject(Model())) {
                         VStack {
                             Image(systemName: "play.fill").imageScale(.medium)
                             Text("Start")
@@ -59,7 +70,7 @@ struct MainView : View {
 #if DEBUG
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(Model())
     }
 }
 #endif
