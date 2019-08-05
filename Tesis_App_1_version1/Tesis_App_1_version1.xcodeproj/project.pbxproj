@@ -19,8 +19,14 @@
 		7A58A31C22DE307D008F602D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58A31B22DE307D008F602D /* ExtensionDelegate.swift */; };
 		7A58A31E22DE307D008F602D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A58A31D22DE307D008F602D /* Assets.xcassets */; };
 		7A58A32122DE307D008F602D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A58A32022DE307D008F602D /* Preview Assets.xcassets */; };
+		7A64C01122F47E2900C1151E /* NextPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A64C01022F47E2800C1151E /* NextPageView.swift */; };
 		7A6C940722E7645A001A0DBB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C940622E7645A001A0DBB /* Model.swift */; };
+		7ABA4F6C22F4624A0072F554 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA4F6B22F4624A0072F554 /* ListView.swift */; };
 		7AD1CAEF22E9F2F5009AF8B3 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */; };
+		7AD1CAF122EB0580009AF8B3 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD1CAF022EB0580009AF8B3 /* PickerView.swift */; };
+		7AD1CAF322EB062C009AF8B3 /* NavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD1CAF222EB062C009AF8B3 /* NavigationButtonView.swift */; };
+		7AD40CCF22EEE710009462AC /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40CCE22EEE710009462AC /* StartView.swift */; };
+		7AF1CEC622F2EE17005E6CFE /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1CEC522F2EE17005E6CFE /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +87,14 @@
 		7A58A31D22DE307D008F602D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A58A32022DE307D008F602D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7A58A32222DE307D008F602D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A64C01022F47E2800C1151E /* NextPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPageView.swift; sourceTree = "<group>"; };
 		7A6C940622E7645A001A0DBB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/Model.swift"; sourceTree = "<group>"; };
+		7ABA4F6B22F4624A0072F554 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/ButtonView.swift"; sourceTree = "<group>"; };
+		7AD1CAF022EB0580009AF8B3 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/PickerView.swift"; sourceTree = "<group>"; };
+		7AD1CAF222EB062C009AF8B3 /* NavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationButtonView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/NavigationButtonView.swift"; sourceTree = "<group>"; };
+		7AD40CCE22EEE710009462AC /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/StartView.swift"; sourceTree = "<group>"; };
+		7AF1CEC522F2EE17005E6CFE /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SliderView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/celina/Library/CloudStorage/iCloud Drive/Documents/Uni/Bachelor Arbeit/App/Tesis_App_1_version1/Tesis_App_1_version1 WatchKit Extension/SliderView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +140,20 @@
 		7A58A31622DE307D008F602D /* Tesis_App_1_version1 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7A64C01022F47E2800C1151E /* NextPageView.swift */,
 				7A6C940622E7645A001A0DBB /* Model.swift */,
-				7A386E6A22E1DF0F0039D5C2 /* CustomTimer.swift */,
+				7A58A31922DE307D008F602D /* HostingController.swift */,
 				7A58A31722DE307D008F602D /* ContentView.swift */,
+				7AD40CCE22EEE710009462AC /* StartView.swift */,
 				7A386E6822E1DEB70039D5C2 /* MainView.swift */,
 				7AD1CAEE22E9F2F5009AF8B3 /* ButtonView.swift */,
+				7AD1CAF022EB0580009AF8B3 /* PickerView.swift */,
+				7AF1CEC522F2EE17005E6CFE /* SliderView.swift */,
+				7ABA4F6B22F4624A0072F554 /* ListView.swift */,
+				7AD1CAF222EB062C009AF8B3 /* NavigationButtonView.swift */,
 				7A386E6422E1BDF30039D5C2 /* TimerView.swift */,
-				7A58A31922DE307D008F602D /* HostingController.swift */,
 				7A58A31B22DE307D008F602D /* ExtensionDelegate.swift */,
+				7A386E6A22E1DF0F0039D5C2 /* CustomTimer.swift */,
 				7A58A31D22DE307D008F602D /* Assets.xcassets */,
 				7A58A32222DE307D008F602D /* Info.plist */,
 				7A58A31F22DE307D008F602D /* Preview Content */,
@@ -279,12 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD1CAF322EB062C009AF8B3 /* NavigationButtonView.swift in Sources */,
+				7ABA4F6C22F4624A0072F554 /* ListView.swift in Sources */,
+				7AD40CCF22EEE710009462AC /* StartView.swift in Sources */,
 				7A6C940722E7645A001A0DBB /* Model.swift in Sources */,
 				7A386E6B22E1DF0F0039D5C2 /* CustomTimer.swift in Sources */,
+				7AD1CAF122EB0580009AF8B3 /* PickerView.swift in Sources */,
 				7AD1CAEF22E9F2F5009AF8B3 /* ButtonView.swift in Sources */,
 				7A58A31A22DE307D008F602D /* HostingController.swift in Sources */,
 				7A58A31822DE307D008F602D /* ContentView.swift in Sources */,
 				7A58A31C22DE307D008F602D /* ExtensionDelegate.swift in Sources */,
+				7A64C01122F47E2900C1151E /* NextPageView.swift in Sources */,
+				7AF1CEC622F2EE17005E6CFE /* SliderView.swift in Sources */,
 				7A386E6922E1DEB70039D5C2 /* MainView.swift in Sources */,
 				7A386E6522E1BDF30039D5C2 /* TimerView.swift in Sources */,
 			);

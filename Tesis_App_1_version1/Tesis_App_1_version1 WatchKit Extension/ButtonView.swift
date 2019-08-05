@@ -7,16 +7,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ButtonView: View {
-    @ObjectBinding var data: Model
+    @ObservedObject var data: Model
     
     var body: some View {
         VStack {
 
-            ForEach(self.data.exercises.identified(by: \.self)) { exercise in
+            ForEach(self.data.exercises, id: \.self) { exercise in
                 Button(action: {
-                    self.data.exercise = String(exercise)
+                    self.data.exercise = self.data.exercises.firstIndex(of: exercise) ?? 0
                 }) {
                     Text(exercise)
                 }

@@ -9,43 +9,56 @@
 import SwiftUI
 
 struct MainView : View {
-    @ObjectBinding private var data = Model()
+    @ObservedObject var data = Model()
+    @State private var pickerIndex = 1
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                ScrollView {
-                    ButtonView(data: self.data)
-                    
-                    Spacer()
-                        .padding(.top)
-                    
-                    Picker(selection: self.$data.countDownTime, label: Text("select Time")) {
-                        ForEach(1...240) { diget in
-                            Text("\(diget)")
-                        }
+                if self.data.scenario == 0 {
+                    ScrollView {
+                        ButtonView(data: self.data)
+                            .frame(width: geometry.size.width)
+                        Spacer()
+                            .padding(.top)
+
+                        PickerView(data: self.data, selector: "countdown", width: geometry.size.width, height: geometry.size.height)
+
+                        Spacer()
+                            .padding(.top)
+
+                        NavigationButtonView(data: self.data)
+                    }
+                    .contextMenu {
+                        NavigationButtonView(data: self.data)
+                    }
+                } else if self.data.scenario == 1 {
+                    ScrollView {
+                        PickerView(data: self.data, selector: "exercise", width: geometry.size.width, height: geometry.size.height)
+
+                        Spacer()
+                            .padding(.top)
+
+                        SliderView(data: self.data)
+
+                        Spacer()
+                            .padding(.top)
+
+                        NavigationButtonView(data: self.data)
+                    }
+                } else if self.data.scenario == 2 {
+                    ScrollView {
+                        ListView(data: self.data, width: geometry.size.width, height: geometry.size.height * 1.5)
                         
-                    }
-                    .frame(width: geometry.size.width, height: (geometry.size.height/3*2), alignment: .center)
-                    
-                    Spacer()
-                        .padding(.top)
-                    
-                    NavigationLink(destination: TimerView(data: self.data)) {
-                        VStack {
-                            Image(systemName: "play.fill").imageScale(.medium)
-                            Text("Start")
-                        }
+                        Spacer()
+                            .padding(.top)
+
+                        Text("Gebe hier die Zeit an:")
+
+                        TextField("Woop", value: self.$data.countDownInt, formatter: NumberFormatter())
                     }
                 }
-                .contextMenu {
-                    NavigationLink(destination: TimerView(data: self.data)) {
-                        VStack {
-                            Image(systemName: "play.fill").imageScale(.medium)
-                            Text("Start")
-                        }
-                    }
-                }
+                
             }
         }
     }
@@ -55,8 +68,14 @@ struct MainView : View {
 #if DEBUG
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(Model())
+        Group {
+            MainView(data: Model(scenario: 0))
+            MainView(data: Model(scenario: 1))
+            MainView(data: Model(scenario: 2))
+        }
     }
 }
 #endif
+
+
 

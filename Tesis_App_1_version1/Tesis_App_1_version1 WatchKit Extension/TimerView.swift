@@ -8,34 +8,37 @@
 
 import SwiftUI
 
+
 struct TimerView : View {
-    //    @ObjectBinding var timer = CustomTimer(timeInterval: 20)
     //    @EnvironmentObject var data : Model
-    @ObjectBinding var data : Model
-    //    @State var seconds: Int = 20
-    
+    @ObservedObject var data : Model
     
     let anotherTimer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     
     var body: some View {
         VStack {
-            Text(data.exercise)
+            Text("\(data.exercises[Int(data.exercise)])")
                 .font(.headline)
             Spacer()
-            Text("\(data.countDownTime / 60):\(data.countDownTime % 60)")
-                .font(.title)
-                .onReceive(anotherTimer) { _ in
-                    if self.data.countDownTime > 0 {
-                        self.data.countDownTime -= 1
-                    }
+            if data.scenario == 0 || data.scenario == 2 {
+                Text("\(data.countDownInt / 60):\(data.countDownInt % 60)")
+                    .font(.title)
+                    .onReceive(anotherTimer) { _ in
+                        if self.data.countDownInt > 0 {
+                            self.data.countDownInt -= 1
+                        }
+                }
+            } else if data.scenario == 1 {
+                Text("\(Int(data.countDownDouble) / 60):\(Int(data.countDownDouble) % 60)")
+                    .font(.title)
+                    .onReceive(anotherTimer) { _ in
+                        if self.data.countDownDouble > 0 {
+                            self.data.countDownDouble -= 1
+                        }
+                }
             }
-//            NavigationLink(destination: MainView()) {
-//                Text("zurück")
-//            }
-            
         }
-        
     }
 }
 

@@ -7,23 +7,26 @@
 //
 
 import Combine
-import SwiftUI
 
-final class Model: BindableObject {
+final class Model: ObservableObject {
+     var exercises = ["Unterarmstütz", "Dehnen", "Kopfstand", "Handstand", "Aufwärmen", "Freuen"]
+        
+    @Published var countDownInt: Int = 30
+    @Published var countDownDouble: Double = 30
+    @Published var exercise: Int = 2
     
-    let willChange = PassthroughSubject<Void, Never>()
+    @Published var scenario: Int = 0
     
-    var exercises = ["Unterarmstütz", "Dehnen", "Kopfstand", "Handstand", "Aufwärmen", "Freuen"]
+    init() {}
     
-    var countDownTime: Int = 30 {
-        willSet {
-            willChange.send()
-        }
+    init(scenario: Int) {
+        self.scenario = scenario
     }
     
-    var exercise = "Dehnen" {
-        willSet {
-            willChange.send()
-        }
-    }
 }
+
+enum PickerType : String {
+    case exercise = "exercise"
+    case countdown = "countdown"
+}
+
